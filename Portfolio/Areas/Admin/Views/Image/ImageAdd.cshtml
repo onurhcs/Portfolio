@@ -1,0 +1,67 @@
+﻿@model Portfolio.Entities.Project
+@{
+    ViewBag.Title = "ImageAdd";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="page-inner">
+        <div class="page-header">
+            <h3 class="fw-bold mb-3">Proje Ekle</h3>
+            <ul class="breadcrumbs mb-3">
+                <li class="nav-home">
+                    <a href="#">
+                        <i class="icon-home"></i>
+                    </a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Projects/ProjectsList">Projeler</a>
+                </li>
+                <li class="separator">
+                    <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Proje Ekle</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Proje Bilgileri</h5>
+                    </div>
+                    <div class="card-body">
+
+                        @using (Html.BeginForm("ImageAdd", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group mb-3">
+                                <label for="ProjectName" class="form-label">Proje Adı</label>
+                                @Html.TextBoxFor(x => x.ProjectName, new { @class = "form-control", placeholder = "Proje Adı Giriniz" })
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="Description" class="form-label">Proje Açıklama</label>
+                                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = "Proje açıklaması giriniz", rows = "4" })
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="Photo" class="form-label">Proje Görsel</label>
+                                <input type="file" name="Photo" class="form-control" />
+                                <small class="form-text text-muted">Lütfen proje ile ilgili bir görsel yükleyin.</small>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">Kaydet</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

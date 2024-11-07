@@ -1,0 +1,65 @@
+﻿@model  Portfolio.Entities.Project
+    @{
+        ViewBag.Title = "UpdateProject";
+        Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    }
+
+
+
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h3 class="fw-bold mb-3">Tables</h3>
+                <ul class="breadcrumbs mb-3">
+                    <li class="nav-home">
+                        <a href="#">
+                            <i class="icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="separator">
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Tables</a>
+                    </li>
+                    <li class="separator">
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Basic Tables</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Hakkımda Düzenle</div>
+                        </div>
+                        <div class="card-body">
+                            <form method="post">
+
+                                @Html.HiddenFor(x => x.ProjectId)
+                                <label>Proje Adı</label>
+                                @Html.TextBoxFor(x => x.ProjectName, new { @class = "form-control" })
+                                <br />
+                                <label>Proje Açıklaması</label>
+                                @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                                <br />
+                                <label>Proje Başlangıç Tarihi</label>
+                                @Html.TextBoxFor(x => x.StartDate, new { @class = "form-control", @type = "date" })
+                                <br />
+                                <label>Proje Bitiş Tarihi</label>
+                                @Html.TextBoxFor(x => x.EndDate, new { @class = "form-control", @type = "date" })
+                                <br />
+                                
+                                <br />
+                                <button class="btn btn-primary">Tur Rotasını Oluştur</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
